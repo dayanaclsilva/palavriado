@@ -1,3 +1,106 @@
 [gd_scene format=3 uid="uid://caspp2wgwx3y6"]
 
+[ext_resource type="PackedScene" uid="uid://b830alilgn4cy" path="res://Scenes/Objetos/letra.tscn" id="1_80ktl"]
+[ext_resource type="Script" uid="uid://bvlstxudyu8hk" path="res://Scenes/Level/main_scene.gd" id="1_iprbj"]
+[ext_resource type="Script" uid="uid://c44t010sm48ia" path="res://Script/Objetos/barra_de_cartas.gd" id="3_2ok2o"]
+[ext_resource type="Texture2D" uid="uid://6exjl5pa5pvi" path="res://Assets/Kenney/UI/PNG/Grey/Double/button_rectangle_depth_gradient.png" id="3_ec7cg"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2ok2o"]
+texture = ExtResource("3_ec7cg")
+texture_margin_left = 10.0
+texture_margin_top = 11.0
+texture_margin_right = 11.0
+texture_margin_bottom = 18.0
+region_rect = Rect2(0, 0, 384, 128)
+
 [node name="MainScene" type="Node2D" unique_id=173049214]
+script = ExtResource("1_iprbj")
+letterReference = ExtResource("1_80ktl")
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1491925485]
+
+[node name="Background" type="Panel" parent="HUD" unique_id=1286834826]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="HUD/Background" unique_id=856457505]
+layout_mode = 0
+offset_left = 505.59006
+offset_top = 485.31998
+offset_right = 988.0
+offset_bottom = 567.0
+text = "Sacar Carta
+"
+
+[node name="IdSpinBox" type="SpinBox" parent="HUD/Background" unique_id=369967667]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 311.0
+offset_top = 475.0
+offset_right = 397.5
+offset_bottom = 506.0
+
+[node name="Label" type="Label" parent="HUD/Background/IdSpinBox" unique_id=382127582]
+layout_mode = 0
+offset_top = -27.0
+offset_right = 40.0
+offset_bottom = -4.0
+text = "Id da carta"
+
+[node name="AmountSpinBox" type="SpinBox" parent="HUD/Background" unique_id=566778706]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 189.0
+offset_top = 474.0
+offset_right = 275.5
+offset_bottom = 505.0
+
+[node name="Label" type="Label" parent="HUD/Background/AmountSpinBox" unique_id=1714527413]
+layout_mode = 0
+offset_left = 4.0
+offset_top = -27.0
+offset_right = 96.0
+offset_bottom = -4.0
+text = "Quantidade"
+
+[node name="BarraDeCartas" type="CanvasLayer" parent="HUD" unique_id=1116127110]
+unique_name_in_owner = true
+script = ExtResource("3_2ok2o")
+
+[node name="Barra" type="Panel" parent="HUD/BarraDeCartas" unique_id=1846142340]
+unique_name_in_owner = true
+anchors_preset = -1
+anchor_left = 0.45700002
+anchor_top = 0.423
+anchor_right = 0.54300004
+anchor_bottom = 0.577
+offset_left = -0.46398926
+offset_top = -0.104003906
+offset_right = 0.46392822
+offset_bottom = 0.10397339
+grow_horizontal = 0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_styles/panel = SubResource("StyleBoxTexture_2ok2o")
+
+[node name="PosiçãoDaCarta" type="HBoxContainer" parent="HUD/BarraDeCartas/Barra" unique_id=2132888745]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -50.0
+offset_right = 50.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+alignment = 1
+
+[connection signal="pressed" from="HUD/Background/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="HUD/Background/Button" to="HUD/BarraDeCartas" method="_on_button_pressed"]

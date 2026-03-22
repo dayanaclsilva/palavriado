@@ -49,4 +49,3 @@ Ai nos separamos em:
 ## Como é feita a pesquisa no dicionário?
 
 Quando o jogador define a palavra, ele deve apertar no botão que aciona a validação do dicionário. Após o clique, buscaremos a palavra definida pelo jogador dentro do dicionário, se encontrar, o jogador vence a partida.
-
