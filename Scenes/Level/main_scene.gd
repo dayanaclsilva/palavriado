@@ -14,7 +14,7 @@ func CriarCarta(id, amount) -> void:
 		var newLetter : Letra = letterReference.instantiate()
 		var spawnLocation : BoxContainer = %"PosiçãoDaCarta"
 		newLetter.id = id
-		newLetter.position
+		newLetter.position += spawnLocation.position
 		spawnLocation.add_child(newLetter)
 
 func _on_button_pressed() -> void:

@@ -205,6 +205,6 @@ script = ExtResource("1_c8gpb")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1709569222]
 unique_name_in_owner = true
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_sjvq2")
 speed_scale = 0.0
