@@ -18,4 +18,12 @@ func CriarCarta(id, amount) -> void:
 		spawnLocation.add_child(newLetter)
 
 func _on_button_pressed() -> void:
+	#Carrega a classe C# e inicia uma instancia
+	var script_cs = load("res://Classes/Dicionario.cs")
+	var dicionario = script_cs.new()
+	#Recebe uma lista de letras (Id,Descricao) que compõe a mão do jogador	
+	var teste = dicionario.PrepararMao()
+	for letra in teste:
+		if letra != null:
+			print("ID: ", letra.Id, " - Descrição: ", letra.Descricao)
 	CriarCarta(%IdSpinBox.value, %AmountSpinBox.value)
