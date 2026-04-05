@@ -7,15 +7,12 @@ extends Node2D
 func _ready() -> void:
 	pass
 
-func CriarCarta(id, amount) -> void:
-	var numberOfCopies : int = amount
-	
-	for count in range(numberOfCopies):
-		var newLetter : Letra = letterReference.instantiate()
-		var spawnLocation : BoxContainer = %"PosiçãoDaCarta"
-		newLetter.id = id
-		newLetter.position += spawnLocation.position
-		spawnLocation.add_child(newLetter)
+func CriarCarta(id) -> void:
+	var newLetter : Letra = letterReference.instantiate()
+	var spawnLocation : BoxContainer = %"PosiçãoDaCarta"
+	newLetter.id = id
+	newLetter.position += spawnLocation.position
+	spawnLocation.add_child(newLetter)
 
 func _on_button_pressed() -> void:
 	#Carrega a classe C# e inicia uma instancia
@@ -26,4 +23,5 @@ func _on_button_pressed() -> void:
 	for letra in teste:
 		if letra != null:
 			print("ID: ", letra.Id, " - Descrição: ", letra.Descricao)
-	CriarCarta(%IdSpinBox.value, %AmountSpinBox.value)
+			CriarCarta(letra.Id)
+	# CriarCarta(%IdSpinBox.value, %AmountSpinBox.value)

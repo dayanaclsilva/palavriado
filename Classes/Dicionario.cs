@@ -90,13 +90,13 @@ public partial class Dicionario : Node
 			// Para cada caractere no array de caracteres
 			foreach (char caractere in caracteres)
 			{
-                // Define a letra e adiciona à lista de letras
-                letra = new Letra
-                {
-                    Id = letras.Count + 1,
-                    Descricao = caractere.ToString().ToUpper()
-                };
-                letras.Add(letra);
+				// Define a letra e adiciona à lista de letras
+				letra = new Letra
+				{
+					Id = letras.Count + 1,
+					Descricao = caractere.ToString().ToUpper()
+				};
+				letras.Add(letra);
 			}
 		}
 
