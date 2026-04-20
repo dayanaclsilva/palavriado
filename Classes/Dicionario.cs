@@ -93,7 +93,7 @@ public partial class Dicionario : Node
                 // Define a letra e adiciona à lista de letras
                 letra = new Letra
                 {
-                    Id = letras.Count + 1,
+                    Id = DefinirIdLetra(caractere.ToString()),
                     Descricao = caractere.ToString().ToUpper()
                 };
                 letras.Add(letra);
@@ -113,6 +113,15 @@ public partial class Dicionario : Node
 	{
 		List<Palavra> palavrasEncontradas = Palavras.Where(p => p.Descricao.Equals(descricao, StringComparison.OrdinalIgnoreCase)).ToList();
 		return palavrasEncontradas.Any();
+	}
+
+	/// <summary>
+	/// Retorna o ID de uma letra
+	/// </summary>
+	public int DefinirIdLetra(string letra)
+	{
+		Letras idLetra = (Letras)Enum.Parse(typeof(Letras), letra, true);
+		return (int)idLetra;
 	}
 
 	// Called when the node enters the scene tree for the first time.
